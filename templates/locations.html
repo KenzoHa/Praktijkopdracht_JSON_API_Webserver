@@ -17,7 +17,9 @@ op deze pagina worden alle 'locations' uit de lijst volledig weergegeven
     
     {% for location in locations %}
         <div>
-            <h2>{{ location }}</h2>
+            <a href="/locations/{{ location }}" class="location-link">
+                <h2>{{ location }}</h2>
+            </a>
         </div>
     {% endfor %}
 </body>
