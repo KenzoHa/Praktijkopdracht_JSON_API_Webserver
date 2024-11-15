@@ -1,8 +1,3 @@
-dit is een overzicht van wat je op de website kan vinden. 
-- link om te gaan naar 'devices'
-- link om te gaan naar 'locaties' 
-- info: wat kan je vinden op deze website 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,9 +16,9 @@ dit is een overzicht van wat je op de website kan vinden.
         <h2>Apparaten Overview</h2>
         {% for device in devices %}
             <div>
-                <p>Naam: {{ device.name }}</p>
+                <p>Naam: <a href="/devices/{{ device.id }}">{{ device.name }}</a></p>
                 <p>Status: {{ device.status }}</p>
-                <p>Locatie: {{ device.location }}</p>
+                <p>Locatie: <a href="/locations/{{ device.location }}">{{ device.location }}</a></p>
             </div>
         {% endfor %}
     </section>
@@ -32,7 +27,7 @@ dit is een overzicht van wat je op de website kan vinden.
         <h2>Locaties Overview</h2>
         {% for location in locations %}
             <div>
-                <p>{{ location }}</p>
+                <p><a href="/locations/{{ device.location }}">{{ device.location }}</a></p>
             </div>
         {% endfor %}
     </section>

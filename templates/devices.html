@@ -17,10 +17,10 @@ op deze pagina worden alle 'devices' uit de lijst volledig weergegeven
     
     {% for device in devices %}
         <div>
-            <h2>{{ device.name }}</h2>
-            <p>ID: {{ device.id }}</p>
+            <h2><a href="/devices/{{ device.id }}">{{ device.name }}</a></h2>
+            <p>ID: <a href="/devices/{{ device.id }}">{{ device.id }}</a></p>
             <p>Status: {{ device.status }}</p>
-            <p>Locatie: {{ device.location }}</p>
+            <p>Locatie: <a href="/locations/{{ device.location }}">{{ device.location }}</a></p>
         </div>
     {% endfor %}
 </body>
