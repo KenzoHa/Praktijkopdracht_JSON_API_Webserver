@@ -13,7 +13,7 @@ https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/
 '''
 
 import requests
-from flask import Flask, render_template
+from flask import Flask, render_template, abort
 
 app = Flask(__name__)
 
@@ -43,6 +43,21 @@ def devices():
     
     return render_template("devices.html", devices=devices)
 
+@app.route("/devices/<int:device_id>")
+def device_detail(device_id):
+    # Haal alle devices op
+    response = requests.get('https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/devices')
+    devices = response.json()
+    
+    # Zoek het specifieke device
+    device = next((device for device in devices if device['id'] == device_id), None)
+    
+    # Als het device niet gevonden is, toon een 404 error
+    if device is None:
+        abort(404)
+    
+    return render_template("device_detail.html", device=device)
+
 @app.route("/locations")
 def locations():
     # Stuur een GET-verzoek om LOCATIONS data op te halen
@@ -51,6 +66,22 @@ def locations():
     # Maak locations variabele om de data in op te slaan (hier een lijst aanmaken is niet nodig, want het response is al een lijst)
     
     return render_template("locations.html", locations=locations)
+
+@app.route("/locations/<string:location_name>")
+def location_detail(location_name):
+    # Haal alle data op om zowel locaties als devices te kunnen checken
+    response = requests.get('https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/db')
+    data = response.json()
+    
+    # Controleer of de locatie bestaat
+    if location_name not in data['locations']:
+        abort(404)
+    
+    # Filter devices voor deze locatie
+    location_devices = [device for device in data['devices'] if device['location'] == location_name]
+    
+    return render_template("location_detail.html", location=location_name, devices=location_devices)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000) 
