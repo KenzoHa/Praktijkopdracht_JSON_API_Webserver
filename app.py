@@ -10,6 +10,12 @@ DATA Sources:
 https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/locations
 https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/devices
 https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/db
+
+IMAGES: 
+hoofdkantoor --> https://www.pfizer.be/nl/over-ons/pfizer-in-belgie/hoofdkantoor-brussel 
+productiehal --> https://www.nbd-online.nl/nieuws/187913-Op-deze-manier-behaal-je-maximale-productiviteit-in-een-productiehal 
+distrubutiecentrum --> https://wanscale.com/klantcases/distributiecentrum/ 
+R&D laboratorium --> https://www.pmgroup-global.com/our-work/biopharma-rd-lab-emd-sero/ 
 '''
 
 import requests
