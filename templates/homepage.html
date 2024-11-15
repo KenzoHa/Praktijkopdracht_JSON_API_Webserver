@@ -12,6 +12,58 @@
     
     <h1>IoT Dashboard</h1>
     
+    <section class="locations-grid">
+        {% for location in locations %}
+            <div class="location-card" style="background-image: url('/static/images/{{ location.lower() }}.png');">
+                <a href="/locations/{{ location }}">{{ location }}</a>
+            </div>
+        {% endfor %}
+    </section>
+    
+    <style>
+    .locations-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .location-card {
+        aspect-ratio: 1;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        width: 250px;
+        height: 250px;
+    }
+    
+    .location-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.5);
+    }
+    
+    .location-card a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        color: #000;
+        text-decoration: none;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
+    </style>
+    
     <section>
         <h2>Apparaten Overview</h2>
         {% for device in devices %}
@@ -23,13 +75,5 @@
         {% endfor %}
     </section>
 
-    <section>
-        <h2>Locaties Overview</h2>
-        {% for location in locations %}
-            <div>
-                <p><a href="/locations/{{ location }}">{{ location }}</a></p>
-            </div>
-        {% endfor %}
-    </section>
 </body>
 </html>
