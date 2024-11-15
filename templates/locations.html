@@ -1,0 +1,26 @@
+op deze pagina worden alle 'locations' uit de lijst volledig weergegeven 
+
+<!-- locations.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IoT Dashboard - Locaties</title>
+</head>
+<body>
+    <nav>
+        <a href="/homepage">Home</a>
+        <a href="/devices">Apparaten</a>
+        <a href="/locations">Locaties</a>
+    </nav>
+    
+    <h1>Locaties</h1>
+    
+    {% for location in locations %}
+        <div>
+            <h2>{{ location.name }}</h2>
+            <p>ID: {{ location.id }}</p>
+            <p>Type: {{ location.type }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

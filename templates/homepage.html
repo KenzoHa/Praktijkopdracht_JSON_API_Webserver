@@ -1,0 +1,42 @@
+dit is een overzicht van wat je op de website kan vinden. 
+- link om te gaan naar 'devices'
+- link om te gaan naar 'locaties' 
+- info: wat kan je vinden op deze website 
+
+<!-- homepage.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IoT Dashboard - Home</title>
+</head>
+<body>
+    <nav>
+        <a href="/homepage">Home</a>
+        <a href="/devices">Apparaten</a>
+        <a href="/locations">Locaties</a>
+    </nav>
+    
+    <h1>IoT Dashboard</h1>
+    
+    <section>
+        <h2>Apparaten Overview</h2>
+        {% for device in devices %}
+            <div>
+                <p>Naam: {{ device.name }}</p>
+                <p>Status: {{ device.status }}</p>
+                <p>Locatie: {{ device.location }}</p>
+            </div>
+        {% endfor %}
+    </section>
+
+    <section>
+        <h2>Locaties Overview</h2>
+        {% for location in locations %}
+            <div>
+                <p>Naam: {{ location.name }}</p>
+                <p>Type: {{ location.type }}</p>
+            </div>
+        {% endfor %}
+    </section>
+</body>
+</html>

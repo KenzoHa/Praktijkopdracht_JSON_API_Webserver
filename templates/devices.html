@@ -1,0 +1,27 @@
+op deze pagina worden alle 'devices' uit de lijst volledig weergegeven 
+
+<!-- devices.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IoT Dashboard - Apparaten</title>
+</head>
+<body>
+    <nav>
+        <a href="/homepage">Home</a>
+        <a href="/devices">Apparaten</a>
+        <a href="/locations">Locaties</a>
+    </nav>
+    
+    <h1>Apparaten</h1>
+    
+    {% for device in devices %}
+        <div>
+            <h2>{{ device.name }}</h2>
+            <p>ID: {{ device.id }}</p>
+            <p>Status: {{ device.status }}</p>
+            <p>Locatie: {{ device.location }}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
