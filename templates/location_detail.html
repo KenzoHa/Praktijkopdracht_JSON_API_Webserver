@@ -5,18 +5,20 @@
 
 <section>
     <h2>Apparaten op deze locatie:</h2>
-    {% if devices %}
-        {% for device in devices %}
-        <div class="device-card">
-            <h3>{{ device.name }}</h3>
-            <span class="status status-{{ device.status }}">{{ device.status | title }}</span>
-            <p>ID: {{ device.id }}</p>
-            <a href="/devices/{{ device.id }}">Bekijk device details</a>
+        <div class="devices-grid">
+            {% if devices %}
+                {% for device in devices %}
+                    <div class="device-card">
+                        <h3>{{ device.name }}</h3>
+                        <span class="status status-{{ device.status }}">{{ device.status | title }}</span>
+                        <p>ID: {{ device.id }}</p>
+                        <a href="/devices/{{ device.id }}">Details bekijken</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Geen apparaten gevonden op deze locatie.</p>
+            {% endif %}
         </div>
-        {% endfor %}
-    {% else %}
-        <p>Geen apparaten gevonden op deze locatie.</p>
-    {% endif %}
 </section>
 
 <div class="navigation-links">
