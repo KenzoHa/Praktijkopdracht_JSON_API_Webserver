@@ -1,0 +1,161 @@
+{# templates/base.html #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}IoT-sensors Dashboard{% endblock %}</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --text: #1e293b;
+        }
+    
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+    
+        .navbar {
+            background: var(--card);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    
+        .navbar a {
+            color: var(--text);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-weight: 500;
+        }
+    
+        .navbar a:hover {
+            color: var(--primary);
+        }
+    
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    
+        .card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+    
+        .card h2 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+    
+        /* Device card styling */
+    .devices-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .device-card {
+        background: var(--card);
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    
+    .device-card h3 {
+        margin-top: 0;
+        color: var(--primary);
+    }
+    
+    /* Status badges */
+    .status {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    
+    .status-actief {
+        background: #86efac;
+        color: #166534;
+    }
+    
+    .status-inactief {
+        background: #fca5a5;
+        color: #991b1b;
+    }
+    
+    .status-vergrendeld {
+        background: #fde047;
+        color: #854d0e;
+    }
+    
+        /* Locations grid styling */
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+    
+        .location-card {
+            aspect-ratio: 1;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+    
+        .location-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.5);
+        }
+    
+        .location-card a {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+    
+        h1, h2 {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="/homepage">Home</a>
+        <a href="/devices">Apparaten</a>
+        <a href="/locations">Locaties</a>
+    </nav>
+    
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

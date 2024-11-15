@@ -1,26 +1,13 @@
-op deze pagina worden alle 'locations' uit de lijst volledig weergegeven 
-
 <!-- locations.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>IoT Dashboard - Locaties</title>
-</head>
-<body>
-    <nav>
-        <a href="/homepage">Home</a>
-        <a href="/devices">Apparaten</a>
-        <a href="/locations">Locaties</a>
-    </nav>
-    
-    <h1>Locaties</h1>
-    
+{% extends "base.html" %}
+{% block content %}
+<h1>Locaties</h1>
+
+<section class="locations-grid">
     {% for location in locations %}
-        <div>
-            <a href="/locations/{{ location }}" class="location-link">
-                <h2>{{ location }}</h2>
-            </a>
-        </div>
+    <div class="location-card" style="background-image: url('/static/images/{{ location.lower() }}.png');">
+        <a href="/locations/{{ location }}">{{ location }}</a>
+    </div>
     {% endfor %}
-</body>
-</html>
+</section>
+{% endblock %}

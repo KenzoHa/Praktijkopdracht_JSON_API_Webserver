@@ -1,37 +1,25 @@
 <!-- location_detail.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>IoT Dashboard - {{ location }}</title>
-</head>
-<body>
-    <nav>
-        <a href="/homepage">Home</a>
-        <a href="/devices">Apparaten</a>
-        <a href="/locations">Locaties</a>
-    </nav>
-    
-    <h1>Locatie: {{ location }}</h1>
-    
-    <section>
-        <h2>Apparaten op deze locatie:</h2>
-        {% if devices %}
-            {% for device in devices %}
-                <div>
-                    <h3>{{ device.name }}</h3>
-                    <p>Status: {{ device.status }}</p>
-                    <p>ID: {{ device.id }}</p>
-                    <p><a href="/devices/{{ device.id }}">Bekijk device details</a></p>
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>Geen apparaten gevonden op deze locatie.</p>
-        {% endif %}
-    </section>
-    
-    <!-- Added navigation links for better user experience -->
-    <div class="navigation-links">
-        <a href="/locations">← Terug naar alle locaties</a>
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<h1>Locatie: {{ location }}</h1>
+
+<section>
+    <h2>Apparaten op deze locatie:</h2>
+    {% if devices %}
+        {% for device in devices %}
+        <div class="device-card">
+            <h3>{{ device.name }}</h3>
+            <span class="status status-{{ device.status }}">{{ device.status | title }}</span>
+            <p>ID: {{ device.id }}</p>
+            <a href="/devices/{{ device.id }}">Bekijk device details</a>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>Geen apparaten gevonden op deze locatie.</p>
+    {% endif %}
+</section>
+
+<div class="navigation-links">
+    <a href="/locations">← Terug naar alle locaties</a>
+</div>
+{% endblock %}

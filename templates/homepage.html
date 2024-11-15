@@ -1,79 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>IoT Dashboard - Home</title>
-</head>
-<body>
-    <nav>
-        <a href="/homepage">Home</a>
-        <a href="/devices">Apparaten</a>
-        <a href="/locations">Locaties</a>
-    </nav>
-    
-    <h1>IoT Dashboard</h1>
-    
-    <section class="locations-grid">
-        {% for location in locations %}
-            <div class="location-card" style="background-image: url('/static/images/{{ location.lower() }}.png');">
-                <a href="/locations/{{ location }}">{{ location }}</a>
-            </div>
-        {% endfor %}
-    </section>
-    
-    <style>
-    .locations-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    
-    .location-card {
-        aspect-ratio: 1;
-        background-size: cover;
-        background-position: center;
-        position: relative;
-        border-radius: 8px;
-        overflow: hidden;
-        width: 250px;
-        height: 250px;
-    }
-    
-    .location-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.5);
-    }
-    
-    .location-card a {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        color: #000;
-        text-decoration: none;
-        font-size: 1.25rem;
-        font-weight: bold;
-    }
-    </style>
-    
-    <section>
-        <h2>Apparaten Overview</h2>
-        {% for device in devices %}
-            <div>
-                <p>Naam: <a href="/devices/{{ device.id }}">{{ device.name }}</a></p>
-                <p>Status: {{ device.status }}</p>
-                <p>Locatie: <a href="/locations/{{ device.location }}">{{ device.location }}</a></p>
-            </div>
-        {% endfor %}
-    </section>
+{% extends "base.html" %}
+{% block content %}
+<h1>IoT Dashboard</h1>
 
-</body>
-</html>
+<section class="locations-grid">
+    {% for location in locations %}
+    <div class="location-card" style="background-image: url('/static/images/{{ location.lower() }}.png');">
+        <a href="/locations/{{ location }}">{{ location }}</a>
+    </div>
+    {% endfor %}
+</section>
+
+<section>
+    <h2>Apparaten Overview</h2>
+    {% include "partials/_devices_grid.html" %}
+</section>
+{% endblock %}

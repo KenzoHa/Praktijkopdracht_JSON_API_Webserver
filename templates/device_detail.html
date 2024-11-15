@@ -1,28 +1,16 @@
 <!-- device_detail.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>IoT Dashboard - Device Details</title>
-</head>
-<body>
-    <nav>
-        <a href="/homepage">Home</a>
-        <a href="/devices">Apparaten</a>
-        <a href="/locations">Locaties</a>
-    </nav>
-    
-    <h1>Device Details</h1>
-    
-    <div>
-        <h2>{{ device.name }}</h2>
-        <p>ID: {{ device.id }}</p>
-        <p>Status: {{ device.status }}</p>
-        <p>Locatie: <a href="/locations/{{ device.location }}">{{ device.location }}</a></p>
-    </div>
-    
-    <!-- Added navigation links for better user experience -->
-    <div class="navigation-links">
-        <a href="/devices">← Terug naar alle apparaten</a>
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<h1>Device Details</h1>
+
+<div class="device-card">
+    <h3>{{ device.name }}</h3>
+    <span class="status status-{{ device.status }}">{{ device.status | title }}</span>
+    <p>ID: {{ device.id }}</p>
+    <p>Locatie: <a href="/locations/{{ device.location }}">{{ device.location }}</a></p>
+</div>
+
+<div class="navigation-links">
+    <a href="/devices">← Terug naar alle apparaten</a>
+</div>
+{% endblock %}
