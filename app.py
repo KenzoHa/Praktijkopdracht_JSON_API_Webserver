@@ -6,7 +6,7 @@ Sources:
 - Anthropic AI (2024) - Claude 3.5 Sonnet - https://claude.ai
 
 DATA Sources:
---> via website "My Json Server": https://my-json-server.typicode.com/ on my GitHub repo --> https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver
+--> via website "My Json Server": https://my-json-server.typicode.com/ on my GitHub repo --> https://github.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver
 https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/locations
 https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/devices
 https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/db
