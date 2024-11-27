@@ -7,7 +7,7 @@
     <h3>{{ device.name }}</h3>
     <span class="status status-{{ device.status }}">{{ device.status | title }}</span>
     <p>ID: {{ device.id }}</p>
-    <p>Locatie: <a href="/locations/{{ device.location }}">{{ device.location }}</a></p>
+    <p>Locatie: <a href="/locations/{{ device.location_id }}">{{ device.location_name }}</a></p>
 </div>
 
 <div class="navigation-links">

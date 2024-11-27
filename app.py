@@ -34,20 +34,31 @@ def homepage():
     # Stuur een GET-verzoek om ALLE data op te halen
     response = requests.get('https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/db')
     json_response = response.json()
-    # Maak 2 lijsten om de data (zijnde 2 lijsten) in op te slaan
-    locations = json_response['locations']
+    # Maak een mapping van locatie-id naar locatie-naam
+    locations_dict = {location['id']: location['name'] for location in json_response['locations']}
     devices = json_response['devices']
     
-    return render_template("homepage.html", devices=devices, locations=locations)
+    # Voeg de locatie-naam toe aan elk device
+    for device in devices:
+        device['location_name'] = locations_dict[device['location_id']]
+    
+    return render_template("homepage.html", devices=devices, locations=json_response['locations'])
 
 @app.route("/devices")
 def devices():
-    # Stuur een GET-verzoek om DEVICES data op te halen
-    response = requests.get('https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/devices')
-    # Maak devices variabele om de data in op te slaan (hier een lijst aanmaken is niet nodig, want het response is al een lijst)
-    devices = response.json()
-    
+    response = requests.get('https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/db')
+    data = response.json()
+
+    # Maak een mapping van locatie-id naar locatie-naam
+    locations_dict = {location['id']: location['name'] for location in data['locations']}
+    devices = data['devices']
+
+    # Voeg de locatie-naam toe aan elk device
+    for device in devices:
+        device['location_name'] = locations_dict[device['location_id']]
+
     return render_template("devices.html", devices=devices)
+
 
 @app.route("/devices/<int:device_id>")
 def device_detail(device_id):
@@ -73,20 +84,20 @@ def locations():
     
     return render_template("locations.html", locations=locations)
 
-@app.route("/locations/<string:location_name>")
-def location_detail(location_name):
-    # Haal alle data op om zowel locaties als devices te kunnen checken
+@app.route("/locations/<int:location_id>")
+def location_detail(location_id):
     response = requests.get('https://my-json-server.typicode.com/KenzoHa/Praktijkopdracht_JSON_API_Webserver/db')
     data = response.json()
-    
-    # Controleer of de locatie bestaat
-    if location_name not in data['locations']:
+
+    # Zoek de locatie
+    location = next((loc for loc in data['locations'] if loc['id'] == location_id), None)
+    if location is None:
         abort(404)
-    
+
     # Filter devices voor deze locatie
-    location_devices = [device for device in data['devices'] if device['location'] == location_name]
-    
-    return render_template("location_detail.html", location=location_name, devices=location_devices)
+    location_devices = [device for device in data['devices'] if device['location_id'] == location_id]
+
+    return render_template("location_detail.html", location=location['name'], devices=location_devices)
 
 
 if __name__ == "__main__":

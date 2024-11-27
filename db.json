@@ -1,190 +1,220 @@
 {
     "locations": [
-      "Hoofdkantoor",
-      "Productiehal",
-      "Distributiecentrum",
-      "R&D Laboratorium"
+        { "id": 1, "name": "Hoofdkantoor" },
+        { "id": 2, "name": "Productiehal" },
+        { "id": 3, "name": "Distributiecentrum" },
+        { "id": 4, "name": "R&D Laboratorium" }
     ],
     "devices": [
       {
         "id": 1,
         "name": "Temperatuursensor 1",
         "status": "actief",
-        "location": "Hoofdkantoor"
+        "location": "Hoofdkantoor",
+        "location_id": 1
       },
       {
         "id": 2,
         "name": "Bewegingssensor Ingang",
         "status": "actief",
-        "location": "Hoofdkantoor"
+        "location": "Hoofdkantoor",
+        "location_id": 1
       },
       {
         "id": 3,
         "name": "Luchtvochtigheid Lab",
         "status": "actief",
-        "location": "R&D Laboratorium"
+        "location": "R&D Laboratorium",
+        "location_id": 4
       },
       {
         "id": 4,
         "name": "Smart Lock HR",
         "status": "vergrendeld",
-        "location": "Hoofdkantoor"
+        "location": "Hoofdkantoor",
+        "location_id": 1
       },
       {
         "id": 5,
         "name": "CO2 Monitor Productie",
         "status": "actief",
-        "location": "Productiehal"
+        "location": "Productiehal",
+        "location_id": 2
       },
       {
         "id": 6,
         "name": "Energiemeter Hal",
         "status": "actief",
-        "location": "Productiehal"
+        "location": "Productiehal",
+        "location_id": 2
       },
       {
         "id": 7,
         "name": "Temperatuursensor DC",
         "status": "actief",
-        "location": "Distributiecentrum"
+        "location": "Distributiecentrum",
+        "location_id": 3
       },
       {
         "id": 8,
         "name": "Waterleksensor Lab",
         "status": "inactief",
-        "location": "R&D Laboratorium"
+        "location": "R&D Laboratorium",
+        "location_id": 4
       },
       {
         "id": 9,
         "name": "Smart Camera Opslag",
         "status": "actief",
-        "location": "Distributiecentrum"
+        "location": "Distributiecentrum",
+        "location_id": 3
       },
       {
         "id": 10,
         "name": "Lichtsensor Kantoor",
         "status": "actief",
-        "location": "Hoofdkantoor"
+        "location": "Hoofdkantoor",
+        "location_id": 1
       },
       {
         "id": 11,
         "name": "Temperatuursensor 2",
         "status": "actief",
-        "location": "Productiehal"
+        "location": "Productiehal",
+        "location_id": 2
       },
       {
         "id": 12,
         "name": "Bewegingssensor Lab",
         "status": "inactief",
-        "location": "R&D Laboratorium"
+        "location": "R&D Laboratorium",
+        "location_id": 4
       },
       {
         "id": 13,
         "name": "Smart Lock DC",
         "status": "vergrendeld",
-        "location": "Distributiecentrum"
+        "location": "Distributiecentrum",
+        "location_id": 3
       },
       {
         "id": 14,
         "name": "Luchtvochtigheid Productie",
         "status": "actief",
-        "location": "Productiehal"
+        "location": "Productiehal",
+        "location_id": 2
       },
       {
         "id": 15,
         "name": "CO2 Monitor Lab",
         "status": "inactief",
-        "location": "R&D Laboratorium"
+        "location": "R&D Laboratorium",
+        "location_id": 4
       },
       {
         "id": 16,
         "name": "Smart Camera Lab",
         "status": "actief",
-        "location": "R&D Laboratorium"
+        "location": "R&D Laboratorium",
+        "location_id": 4
       },
       {
         "id": 17,
         "name": "Energiemeter DC",
         "status": "actief",
-        "location": "Distributiecentrum"
+        "location": "Distributiecentrum",
+        "location_id": 3
       },
       {
         "id": 18,
         "name": "Waterleksensor Productie",
         "status": "vergrendeld",
-        "location": "Productiehal"
+        "location": "Productiehal",
+        "location_id": 2
       },
       {
         "id": 19,
         "name": "Lichtsensor Lab",
         "status": "actief",
-        "location": "R&D Laboratorium"
+        "location": "R&D Laboratorium",
+        "location_id": 4
       },
       {
         "id": 20,
         "name": "Smart Lock Productie",
         "status": "vergrendeld",
-        "location": "Productiehal"
+        "location": "Productiehal",
+        "location_id": 2
       },
       {
         "id": 21,
         "name": "Temperatuursensor 3",
         "status": "inactief",
-        "location": "R&D Laboratorium"
+        "location": "R&D Laboratorium",
+        "location_id": 4
       },
       {
         "id": 22,
         "name": "Bewegingssensor DC",
         "status": "actief",
-        "location": "Distributiecentrum"
+        "location": "Distributiecentrum",
+        "location_id": 3
       },
       {
         "id": 23,
         "name": "CO2 Monitor Kantoor",
         "status": "actief",
-        "location": "Hoofdkantoor"
+        "location": "Hoofdkantoor",
+        "location_id": 1
       },
       {
         "id": 24,
         "name": "Smart Camera Productie",
         "status": "actief",
-        "location": "Productiehal"
+        "location": "Productiehal",
+        "location_id": 2
       },
       {
         "id": 25,
         "name": "Luchtvochtigheid DC",
         "status": "inactief",
-        "location": "Distributiecentrum"
+        "location": "Distributiecentrum",
+        "location_id": 3
       },
       {
         "id": 26,
         "name": "Energiemeter Lab",
         "status": "actief",
-        "location": "R&D Laboratorium"
+        "location": "R&D Laboratorium",
+        "location_id": 4
       },
       {
         "id": 27,
         "name": "Waterleksensor DC",
         "status": "vergrendeld",
-        "location": "Distributiecentrum"
+        "location": "Distributiecentrum",
+        "location_id": 3
       },
       {
         "id": 28,
         "name": "Lichtsensor Productie",
         "status": "actief",
-        "location": "Productiehal"
+        "location": "Productiehal",
+        "location_id": 2
       },
       {
         "id": 29,
         "name": "Smart Lock Lab",
         "status": "vergrendeld",
-        "location": "R&D Laboratorium"
+        "location": "R&D Laboratorium",
+        "location_id": 4
       },
       {
         "id": 30,
         "name": "Bewegingssensor Productie",
         "status": "actief",
-        "location": "Productiehal"
+        "location": "Productiehal",
+        "location_id": 2
       }
   ]
   }

@@ -4,9 +4,9 @@
 
 <section class="locations-grid">
     {% for location in locations %}
-    <div class="location-card" style="background-image: url('/static/images/{{ location.lower() }}.png');">
-        <a href="/locations/{{ location }}">{{ location }}</a>
-    </div>
+    <div class="location-card" style="background-image: url('/static/images/{{ location.name.lower() }}.png');">
+        <a href="/locations/{{ location.id }}">{{ location.name }}</a>
+    </div>    
     {% endfor %}
 </section>
 

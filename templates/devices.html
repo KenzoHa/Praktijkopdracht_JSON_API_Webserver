@@ -8,7 +8,7 @@
     <div class="device-card">
         <h3>{{ device.name }}</h3>
         <span class="status status-{{ device.status }}">{{ device.status | title }}</span>
-        <p>Locatie: <a href="/locations/{{ device.location }}">{{ device.location }}</a></p>
+        <p>Locatie: <a href="/locations/{{ device.location_id }}">{{ device.location_name }}</a></p>
         <a href="/devices/{{ device.id }}">Details bekijken</a>
     </div>
     {% endfor %}
